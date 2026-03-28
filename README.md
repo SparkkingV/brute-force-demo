@@ -1,20 +1,25 @@
-# brute-force-demo
-
 # 🔐 Brute Force Attack Simulator
 
-This project demonstrates how a brute-force attack works on a login system.
+🚀 Day 1 of my CYSEC (Cybersecurity) Journey
 
-## 💡 Features
-- Simulates password guessing
-- Counts number of attempts
-- Shows success/failure
+## 💡 Description
+This project simulates a brute-force attack where multiple passwords are tried until the correct one is found.
 
-## 🛠️ Tech Used
+## ⚙️ Features
+- Password guessing simulation
+- Attempt counter
+- Success detection
+
+## 🛠️ Tech Stack
 - Python
 
-## 🚀 Learning Outcome
-- Understanding brute-force attacks
-- Basics of cybersecurity
+## 📈 Future Improvements
+- Add wordlist attack
+- Build web login page
+- Add account lock system
 
 ## ⚠️ Disclaimer
 This project is for educational purposes only.
+
+## 👨‍💻 Author
+Vikash (Cyber Warrior)
