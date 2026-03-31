@@ -1,18 +1,24 @@
 username = "admin"
 crt_pass = "123_adm"
 
-pass_list =["1234","123admin","admin@123","helloworld","admin","123_adm"]
-
 attempts = 0
 
-for password in pass_list :
-    attempts += 1
-    print(f"trying : {password}")
 
-    if password == crt_pass:
-        print("\n password found!")
-        print(f"password : {password}")
-        print(f"attempts : {attempts}")
-        break
-    else:
-        print(f"password not found!")
+with open("pwd_list.txt" , "r") as file:
+    for line in file:
+        password = line.strip()
+        attempts += 1
+        import time
+        time.sleep(0.5)
+
+        print(f"\n Trying : {password}")
+
+        if password == crt_pass:
+            print(f"\npassword found")
+            print(f"Attempts : {attempts}")
+            print(f"password : {password}\n")
+            break
+        else:
+            print(f"password not found!")
+
+
