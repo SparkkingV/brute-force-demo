@@ -4,3 +4,7 @@ admin@123
 123_adm
 helloworld
 admin
+password
+pwd
+pass
+hello
