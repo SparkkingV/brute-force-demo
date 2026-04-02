@@ -1,19 +1,15 @@
-crt_pass = "123_admin"
-attempts = 0
-max_attempts = 3
+from flask import Flask, request
 
-while attempts < max_attempts:
-    password = input("enter password : ")
+app = Flask(__name__)
 
-    import time
-    time.sleep(1)
+@app.route('/login', methods=['POST'])
+def login():
+    username = request.form.get('username')
+    password = request.form.get('password')
 
-    if password == crt_pass:
-        print(f"Access Granted..!")
-        break
+    if username == "admin" and password == "admin":
+        return "Login Successful"
     else:
-        attempts += 1
-        print(f"Wrong Password!")
+        return "Login Failed"
 
-    if attempts == max_attempts:
-        print(f"!Account locked due to many failed attempts")
+app.run(debug=True)

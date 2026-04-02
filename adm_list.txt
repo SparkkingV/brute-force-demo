@@ -3,6 +3,7 @@ adm
 01admin
 adminhost
 host
+vikashsharan2010@gmail.com
 user
 localhost
-admi
+admin

