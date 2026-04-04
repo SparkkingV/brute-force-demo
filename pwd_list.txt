@@ -3,7 +3,7 @@
 admin@123
 123_adm
 helloworld
-admin
+admin@123
 password
 12345678
 pwd

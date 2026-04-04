@@ -1,23 +1,47 @@
-from flask import Flask, request, redirect, render_template
+from flask import Flask, request , render_template_string
 
 app = Flask(__name__)
 
-# 🔐 Correct credentials
-REAL_USER = "vikashsharan2010@gmail.com"
-REAL_PASS = "12345678"
+USERNAME = "admin"
+PASSWORD = "admin@123"
 
-@app.route("/")
-def home():
-    return render_template("login.html")
+html_page =  """
 
-@app.route("/login", methods=["POST"])
+    <!DOCTYPE html>
+<html>
+<head>
+    <title>vault</title>
+</head>
+<body>
+
+<h2>Login Page</h2>
+
+<form action="/login" method="POST">
+    <input type="text" name="username" placeholder="Email" required>
+    <input type="password" name="password" placeholder="Password" required>
+    <button type="submit">Login</button>
+</form>
+
+<p>{{ message }}</p>
+
+</body>
+</html>
+
+"""
+@app.route("/", methods=["GET","POST"])
 def login():
-    username = request.form.get("username")
-    password = request.form.get("password")
+    message = ""
+    
+    if request.method == "POST":
+        username = request.form["username"]
+        password = request.form["password"]
 
-    if username == REAL_USER and password == REAL_PASS:
-        return "Login Successful"
-    else:
-        return "Login Failed"
+        if username == USERNAME and password == PASSWORD :
+            message = "LOGIN SUCCESSFUL"
+        else:
+            message = "LOGIN FAILED"
 
-app.run(debug=True)
+    return render_template_string(html_page,message=message)
+
+if __name__ == "__main__":
+    app.run(host = "0.0.0.0",port=1106,debug=True)

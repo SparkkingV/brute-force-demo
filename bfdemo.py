@@ -1,7 +1,7 @@
 import requests
 import time
 
-url = "http://127.0.0.1:5000/login"
+url = "http://127.0.0.1:1106/login"
 
 attempts = 0
 
